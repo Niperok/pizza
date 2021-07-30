@@ -7,6 +7,5 @@
         <item screen="pizza_Payment.browse" caption="mainMsg://menu_config.pizza_Payment.browse"/>
         <item screen="pizza_Pizza.browse" caption="mainMsg://menu_config.pizza_Pizza.browse"/>
         <item screen="pizza_Topping.browse" caption="mainMsg://menu_config.pizza_Topping.browse"/>
-        <item screen="pizza_OrderInformation.browse" caption="mainMsg://menu_config.pizza_OrderInformation.browse"/>
     </menu>
 </menu-config>

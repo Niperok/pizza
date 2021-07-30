@@ -1,0 +1,2 @@
+alter table PIZZA_ORDER add constraint FK_PIZZA_ORDER_ON_DELIVERY_COURIER foreign key (DELIVERY_COURIER_ID) references SEC_USER(ID);
+create index IDX_PIZZA_ORDER_ON_COURIER on PIZZA_ORDER (COURIER_ID);

@@ -7,7 +7,7 @@
     <data readOnly="true">
         <collection id="pizzasDc"
                     class="com.company.pizza.entity.Pizza"
-                    view="pizza-with-ingredients">
+                    view="pizza-view">
             <loader id="pizzasDl">
                 <query>
                     <![CDATA[select e from pizza_Pizza e]]>

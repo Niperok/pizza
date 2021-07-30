@@ -7,7 +7,7 @@
     <data readOnly="true">
         <collection id="ordersDc"
                     class="com.company.pizza.entity.Order"
-                    view="order-full">
+                    view="order-view">
             <loader id="ordersDl">
                 <query>
                     <![CDATA[select e from pizza_Order e]]>
@@ -37,8 +37,12 @@
                 <column id="date"/>
                 <column id="status"/>
                 <column id="cost"/>
-                <column id="information"/>
-                <column id="positions"/>
+                <column id="delivery.clientName"/>
+                <column id="delivery.adress"/>
+                <column id="delivery.phoneNumber"/>
+                <column id="delivery.email"/>
+                <column id="delivery.comment"/>
+                <column id="delivery.courier"/>
             </columns>
             <rowsCount/>
             <buttonsPanel id="buttonsPanel"

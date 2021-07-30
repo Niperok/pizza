@@ -1,7 +1,10 @@
 package com.company.pizza.entity;
 
+import com.haulmont.chile.core.annotations.Composition;
 import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.StandardEntity;
+import com.haulmont.cuba.core.entity.annotation.OnDelete;
+import com.haulmont.cuba.core.global.DeletePolicy;
 
 import javax.persistence.*;
 import javax.validation.constraints.DecimalMin;
@@ -40,6 +43,8 @@ public class Pizza extends StandardEntity {
     private String information;
 
     @OneToMany(mappedBy = "pizza")
+    @OnDelete(DeletePolicy.CASCADE)
+    @Composition
     private List<Ingredient> ingredients;
 
     public List<Ingredient> getIngredients() {

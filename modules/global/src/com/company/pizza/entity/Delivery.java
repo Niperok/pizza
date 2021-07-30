@@ -1,23 +1,23 @@
 package com.company.pizza.entity;
 
-import com.haulmont.chile.core.annotations.NamePattern;
-import com.haulmont.cuba.core.entity.StandardEntity;
+import com.haulmont.chile.core.annotations.MetaClass;
+import com.haulmont.cuba.core.entity.EmbeddableEntity;
 import com.haulmont.cuba.security.entity.User;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-@Table(name = "PIZZA_ORDER_INFORMATION")
-@Entity(name = "pizza_OrderInformation")
-@NamePattern("%s|order")
-public class OrderInformation extends StandardEntity {
-    private static final long serialVersionUID = 10303978568880159L;
+@MetaClass(name = "pizza_Delivery")
+@Embeddable
+public class Delivery extends EmbeddableEntity {
+    private static final long serialVersionUID = 4615609907448565211L;
 
-    @NotNull
     @Column(name = "CLIENT_NAME", nullable = false)
+    @NotNull
     private String clientName;
 
     @NotNull
+    @Lob
     @Column(name = "ADRESS", nullable = false)
     private String adress;
 
@@ -35,17 +35,6 @@ public class OrderInformation extends StandardEntity {
     @Lob
     @Column(name = "COMMENT_")
     private String comment;
-
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "information")
-    private Order order;
-
-    public Order getOrder() {
-        return order;
-    }
-
-    public void setOrder(Order order) {
-        this.order = order;
-    }
 
     public String getComment() {
         return comment;

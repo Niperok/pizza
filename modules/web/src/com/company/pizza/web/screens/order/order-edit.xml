@@ -6,8 +6,9 @@
     <data>
         <instance id="orderDc"
                   class="com.company.pizza.entity.Order"
-                  view="order-full">
+                  view="order-view">
             <loader/>
+            <collection id="positionsDc" property="positions"/>
         </instance>
     </data>
     <dialogMode height="600"
@@ -17,15 +18,14 @@
             <column width="350px">
                 <textField id="numberField" property="number"/>
                 <dateField id="dateField" property="date"/>
-                <textField id="statusField" property="status"/>
+                <lookupField id="statusField" property="status"/>
                 <textField id="costField" property="cost"/>
-                <pickerField id="informationField" property="information">
-                    <actions>
-                        <action id="lookup" type="picker_lookup"/>
-                        <action id="clear" type="picker_clear"/>
-                    </actions>
-                </pickerField>
-                <pickerField id="positionsField" property="positions">
+                <textField id="deliveryClientNameField" property="delivery.clientName"/>
+                <textArea id="deliveryAdressField" property="delivery.adress" rows="5"/>
+                <textField id="deliveryPhoneNumberField" property="delivery.phoneNumber"/>
+                <textField id="deliveryEmailField" property="delivery.email"/>
+                <textArea id="deliveryCommentField" property="delivery.comment" rows="5"/>
+                <pickerField id="deliveryCourierField" property="delivery.courier">
                     <actions>
                         <action id="lookup" type="picker_lookup"/>
                         <action id="clear" type="picker_clear"/>
@@ -33,6 +33,24 @@
                 </pickerField>
             </column>
         </form>
+        <groupBox id="positionsBox" caption="msg://com.company.pizza.entity/Order.positions">
+            <table id="positionsTable" dataContainer="positionsDc" width="100%" height="200px">
+                <actions>
+                    <action id="create" type="create"/>
+                    <action id="edit" type="edit"/>
+                    <action id="remove" type="remove"/>
+                </actions>
+                <columns>
+                    <column id="count"/>
+                    <column id="pizza"/>
+                </columns>
+                <buttonsPanel>
+                    <button action="positionsTable.create"/>
+                    <button action="positionsTable.edit"/>
+                    <button action="positionsTable.remove"/>
+                </buttonsPanel>
+            </table>
+        </groupBox>
         <hbox id="editActions" spacing="true">
             <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
             <button id="closeBtn" action="windowClose"/>

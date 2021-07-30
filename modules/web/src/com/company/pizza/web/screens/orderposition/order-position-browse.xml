@@ -6,8 +6,8 @@
         messagesPack="com.company.pizza.web.screens.orderposition">
     <data readOnly="true">
         <collection id="orderPositionsDc"
-                    class="com.company.pizza.entity.OrderPosition"
-                    view="orderPosition-view">
+                    class="com.company.pizza.entity.OrderPosition">
+            <view extends="_base"/>
             <loader id="orderPositionsDl">
                 <query>
                     <![CDATA[select e from pizza_OrderPosition e]]>

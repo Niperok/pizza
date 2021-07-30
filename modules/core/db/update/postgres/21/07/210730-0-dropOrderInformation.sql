@@ -1,0 +1,1 @@
+alter table pizza_order_information rename to PIZZA_ORDER_INFORMATION__U21395 ;

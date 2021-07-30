@@ -20,6 +20,7 @@ public class Ingredient extends StandardEntity {
     @NotNull
     @Column(name = "WEIGHT", nullable = false)
     private Integer weight;
+
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "PIZZA_ID")
     private Pizza pizza;

@@ -99,34 +99,18 @@ create table PIZZA_ORDER (
     DELETE_TS timestamp,
     DELETED_BY varchar(50),
     --
+    DELIVERY_CLIENT_NAME varchar(255) not null,
+    DELIVERY_ADRESS text not null,
+    DELIVERY_PHONE_NUMBER varchar(255) not null,
+    DELIVERY_EMAIL varchar(255),
+    DELIVERY_COURIER_ID uuid,
+    DELIVERY_COMMENT_ text,
+    --
     NUMBER_ integer not null,
-    DATE_ date not null,
-    STATUS varchar(255),
+    DATE_ timestamp not null,
+    STATUS integer not null,
     COST decimal(19, 2) not null,
-    INFORMATION_ID uuid,
-    POSITIONS_ID uuid,
     --
     primary key (ID)
 )^
 -- end PIZZA_ORDER
--- begin PIZZA_ORDER_INFORMATION
-create table PIZZA_ORDER_INFORMATION (
-    ID uuid,
-    VERSION integer not null,
-    CREATE_TS timestamp,
-    CREATED_BY varchar(50),
-    UPDATE_TS timestamp,
-    UPDATED_BY varchar(50),
-    DELETE_TS timestamp,
-    DELETED_BY varchar(50),
-    --
-    CLIENT_NAME varchar(255) not null,
-    ADRESS varchar(255) not null,
-    PHONE_NUMBER varchar(255) not null,
-    EMAIL varchar(255),
-    COURIER_ID uuid,
-    COMMENT_ text,
-    --
-    primary key (ID)
-)^
--- end PIZZA_ORDER_INFORMATION

@@ -5,8 +5,8 @@
         messagesPack="com.company.pizza.web.screens.orderposition">
     <data>
         <instance id="orderPositionDc"
-                  class="com.company.pizza.entity.OrderPosition"
-                  view="orderPosition-view">
+                  class="com.company.pizza.entity.OrderPosition">
+            <view extends="_base"/>
             <loader/>
         </instance>
     </data>
