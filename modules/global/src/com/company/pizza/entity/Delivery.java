@@ -5,6 +5,7 @@ import com.haulmont.cuba.core.entity.EmbeddableEntity;
 import com.haulmont.cuba.security.entity.User;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 
 @MetaClass(name = "pizza_Delivery")
@@ -26,6 +27,7 @@ public class Delivery extends EmbeddableEntity {
     private String phoneNumber;
 
     @Column(name = "EMAIL")
+    @Email(message = "Невалидный Email!")
     private String email;
 
     @ManyToOne(fetch = FetchType.LAZY)

@@ -4,7 +4,9 @@ import com.haulmont.chile.core.annotations.Composition;
 import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.StandardEntity;
 import com.haulmont.cuba.core.entity.annotation.EmbeddedParameters;
+import com.haulmont.cuba.core.entity.annotation.Listeners;
 import com.haulmont.cuba.core.entity.annotation.OnDelete;
+import com.haulmont.cuba.core.entity.annotation.PublishEntityChangedEvents;
 import com.haulmont.cuba.core.global.DeletePolicy;
 
 import javax.persistence.*;
@@ -15,16 +17,17 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
+@PublishEntityChangedEvents
 @Table(name = "PIZZA_ORDER")
 @Entity(name = "pizza_Order")
 @NamePattern("%s|number")
+@Listeners("pizza_OrderEntityListener")
 public class Order extends StandardEntity {
     private static final long serialVersionUID = 7434331762778569833L;
 
-    @NotNull
-    @Column(name = "NUMBER_", nullable = false, unique = true)
+    @Column(name = "NUMBER_", unique = true)
     @Positive
-    private Integer number;
+    private Long number;
 
     @Column(name = "DATE_", nullable = false)
     @NotNull
@@ -57,6 +60,14 @@ public class Order extends StandardEntity {
     @OnDelete(DeletePolicy.CASCADE)
     @Composition
     private List<OrderPosition> positions;
+
+    public void setNumber(Long number) {
+        this.number = number;
+    }
+
+    public Long getNumber() {
+        return number;
+    }
 
     public Delivery getDelivery() {
         return delivery;
@@ -98,11 +109,4 @@ public class Order extends StandardEntity {
         this.cost = cost;
     }
 
-    public Integer getNumber() {
-        return number;
-    }
-
-    public void setNumber(Integer number) {
-        this.number = number;
-    }
 }

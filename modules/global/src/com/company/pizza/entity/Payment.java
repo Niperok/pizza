@@ -15,8 +15,8 @@ public class Payment extends StandardEntity {
     private static final long serialVersionUID = -7417323547980181566L;
 
     @NotNull
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "ORDER_ID")
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     private Order order;
 
     @NotNull

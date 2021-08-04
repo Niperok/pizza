@@ -106,7 +106,7 @@ create table PIZZA_ORDER (
     DELIVERY_COURIER_ID uuid,
     DELIVERY_COMMENT_ text,
     --
-    NUMBER_ integer not null,
+    NUMBER_ bigint,
     DATE_ timestamp not null,
     STATUS integer not null,
     COST decimal(19, 2) not null,

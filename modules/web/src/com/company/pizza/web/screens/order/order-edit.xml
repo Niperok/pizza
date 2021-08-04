@@ -16,10 +16,10 @@
     <layout expand="editActions" spacing="true">
         <form id="form" dataContainer="orderDc">
             <column width="350px">
-                <textField id="numberField" property="number"/>
+                <textField id="numberField" property="number" visible="false"/>
                 <dateField id="dateField" property="date"/>
                 <lookupField id="statusField" property="status"/>
-                <textField id="costField" property="cost"/>
+                <textField id="costField" property="cost" editable="false"/>
                 <textField id="deliveryClientNameField" property="delivery.clientName"/>
                 <textArea id="deliveryAdressField" property="delivery.adress" rows="5"/>
                 <textField id="deliveryPhoneNumberField" property="delivery.phoneNumber"/>
