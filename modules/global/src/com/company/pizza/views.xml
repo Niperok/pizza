@@ -18,5 +18,6 @@
     </view>
     <view entity="pizza_Pizza" name="pizza-view" extends="_local">
         <property name="ingredients" view="_minimal"/>
+        <property name="image" view="_minimal"/>
     </view>
 </views>

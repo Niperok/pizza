@@ -21,6 +21,9 @@
                 <textField id="priceField" property="price"/>
                 <textField id="calorificField" property="calorific"/>
                 <textArea id="informationField" property="information" rows="5"/>
+                <upload fileStoragePutMode="IMMEDIATE"
+                        dataContainer="pizzaDc"
+                        property="image"/>
             </column>
         </form>
         <groupBox id="ingredientsBox" caption="msg://com.company.pizza.entity/Pizza.ingredients">

@@ -14,6 +14,7 @@ create table PIZZA_PIZZA (
     PRICE decimal(19, 2) not null,
     CALORIFIC integer,
     INFORMATION text,
+    IMAGE_ID uuid,
     --
     primary key (ID)
 )^

@@ -2,6 +2,7 @@ package com.company.pizza.entity;
 
 import com.haulmont.chile.core.annotations.Composition;
 import com.haulmont.chile.core.annotations.NamePattern;
+import com.haulmont.cuba.core.entity.FileDescriptor;
 import com.haulmont.cuba.core.entity.StandardEntity;
 import com.haulmont.cuba.core.entity.annotation.OnDelete;
 import com.haulmont.cuba.core.global.DeletePolicy;
@@ -46,6 +47,20 @@ public class Pizza extends StandardEntity {
     @OnDelete(DeletePolicy.CASCADE)
     @Composition
     private List<Ingredient> ingredients;
+
+    @Composition
+    @OnDelete(DeletePolicy.CASCADE)
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "IMAGE_ID")
+    private FileDescriptor image;
+
+    public FileDescriptor getImage() {
+        return image;
+    }
+
+    public void setImage(FileDescriptor image) {
+        this.image = image;
+    }
 
     public List<Ingredient> getIngredients() {
         return ingredients;

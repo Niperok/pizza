@@ -9,6 +9,4 @@ public interface OrderService {
 
     BigDecimal calculateCost(Order order);
     BigDecimal calculateSales(Order order, BigDecimal cost);
-    void createPayment(Order order);
-    void createRefund(Order order);
 }

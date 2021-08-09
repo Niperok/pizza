@@ -14,39 +14,57 @@
                 </query>
             </loader>
         </collection>
+        <instance id="pizzaDc" class="com.company.pizza.entity.Pizza">
+            <view extends="_local">
+                <property name="image" view="_minimal"/>
+                <property name="ingredients" view="_local">
+                    <property name="topping" view="_minimal"/>
+                </property>
+            </view>
+            <loader id="pizzaDl"/>
+            <collection id="ingredientsDc" property="ingredients"/>
+        </instance>
     </data>
     <dialogMode height="600"
                 width="800"/>
-    <layout expand="pizzasTable"
+    <layout expand="mainBox"
             spacing="true">
-        <filter id="filter"
-                applyTo="pizzasTable"
-                dataLoader="pizzasDl">
-            <properties include=".*"/>
-        </filter>
-        <groupTable id="pizzasTable"
-                    width="100%"
-                    dataContainer="pizzasDc">
-            <actions>
-                <action id="create" type="create"/>
-                <action id="edit" type="edit"/>
-                <action id="remove" type="remove"/>
-            </actions>
-            <columns>
-                <column id="name"/>
-                <column id="size"/>
-                <column id="price"/>
-                <column id="calorific"/>
-                <column id="information"/>
-            </columns>
-            <rowsCount/>
-            <buttonsPanel id="buttonsPanel"
-                          alwaysVisible="true">
-                <button id="createBtn" action="pizzasTable.create"/>
-                <button id="editBtn" action="pizzasTable.edit"/>
-                <button id="removeBtn" action="pizzasTable.remove"/>
-            </buttonsPanel>
-        </groupTable>
+        <hbox id="mainBox" spacing="true">
+            <groupTable id="pizzasTable"
+                        dataContainer="pizzasDc"
+                        width="700px"
+                        height="100%">
+                <actions>
+                    <action id="create" type="create"/>
+                    <action id="edit" type="edit"/>
+                    <action id="remove" type="remove"/>
+                    <action id="showRecipe" caption="msg://action.showRecipe" icon="FILE_TEXT_O" trackSelection="true"/>
+                </actions>
+                <columns>
+                    <column id="name" width="350px"/>
+                    <column id="size"/>
+                </columns>
+                <rowsCount/>
+                <buttonsPanel id="buttonsPanel"
+                              alwaysVisible="true">
+                    <button id="createBtn" action="pizzasTable.create"/>
+                    <button id="editBtn" action="pizzasTable.edit"/>
+                    <button id="removeBtn" action="pizzasTable.remove"/>
+                </buttonsPanel>
+            </groupTable>
+            <groupBox spacing="true" height="100%">
+                <form id="pizzaForm" dataContainer="pizzasDc" editable="false" captionPosition="TOP">
+                    <column width="350px" childrenCaptionWidth="AUTO">
+                        <image id="image" dataContainer="pizzasDc" property="image" scaleMode="CONTAIN"/>
+                        <textField id="priceField" property="price"/>
+                        <textField id="calorificField" property="calorific"/>
+                        <textArea id="informationField" property="information" rows="5"/>
+                        <button id="recipeBtn" caption="Show Recipe" action="pizzasTable.showRecipe"/>
+                        <button id="basket" icon="SHOPPING_BASKET" caption="Add to Basket"/>
+                    </column>
+                </form>
+            </groupBox>
+        </hbox>
         <hbox id="lookupActions" spacing="true" visible="false">
             <button action="lookupSelectAction"/>
             <button action="lookupCancelAction"/>

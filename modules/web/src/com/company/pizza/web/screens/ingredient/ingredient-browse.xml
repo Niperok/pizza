@@ -11,6 +11,11 @@
             <loader id="ingredientsDl">
                 <query>
                     <![CDATA[select e from pizza_Ingredient e]]>
+                    <condition>
+                        <c:jpql>
+                            <c:where>e.pizza.id = :pizzaId</c:where>
+                        </c:jpql>
+                    </condition>
                 </query>
             </loader>
         </collection>
@@ -19,31 +24,14 @@
                 width="800"/>
     <layout expand="ingredientsTable"
             spacing="true">
-        <filter id="filter"
-                applyTo="ingredientsTable"
-                dataLoader="ingredientsDl">
-            <properties include=".*"/>
-        </filter>
         <groupTable id="ingredientsTable"
                     width="100%"
                     dataContainer="ingredientsDc">
-            <actions>
-                <action id="create" type="create"/>
-                <action id="edit" type="edit"/>
-                <action id="remove" type="remove"/>
-            </actions>
             <columns>
-                <column id="pizza"/>
                 <column id="topping"/>
                 <column id="weight"/>
             </columns>
             <rowsCount/>
-            <buttonsPanel id="buttonsPanel"
-                          alwaysVisible="true">
-                <button id="createBtn" action="ingredientsTable.create"/>
-                <button id="editBtn" action="ingredientsTable.edit"/>
-                <button id="removeBtn" action="ingredientsTable.remove"/>
-            </buttonsPanel>
         </groupTable>
         <hbox id="lookupActions" spacing="true" visible="false">
             <button action="lookupSelectAction"/>
