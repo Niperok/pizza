@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
-        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
         caption="msg://pizzaBrowse.caption"
         focusComponent="pizzasTable"
         messagesPack="com.company.pizza.web.screens.pizza">
@@ -27,12 +26,10 @@
     </data>
     <dialogMode height="600"
                 width="800"/>
-    <layout expand="mainBox"
-            spacing="true">
-        <hbox id="mainBox" spacing="true">
+    <layout spacing="true" height="100%" expand="mainBox">
+        <hbox id="mainBox" spacing="true" expand="pizzasTable" width="100%">
             <groupTable id="pizzasTable"
                         dataContainer="pizzasDc"
-                        width="700px"
                         height="100%">
                 <actions>
                     <action id="create" type="create"/>
@@ -41,7 +38,7 @@
                     <action id="showRecipe" caption="msg://action.showRecipe" icon="FILE_TEXT_O" trackSelection="true"/>
                 </actions>
                 <columns>
-                    <column id="name" width="350px"/>
+                    <column id="name"/>
                     <column id="size"/>
                 </columns>
                 <rowsCount/>
@@ -53,7 +50,7 @@
                     <button id="reportBtn" icon="icons/reports-print.png"/>
                 </buttonsPanel>
             </groupTable>
-            <groupBox spacing="true" height="100%">
+            <groupBox id="rightBox" spacing="true" height="100%" width="AUTO">
                 <form id="pizzaForm" dataContainer="pizzasDc" editable="false" captionPosition="TOP">
                     <column width="350px" childrenCaptionWidth="AUTO">
                         <image id="image" dataContainer="pizzasDc" property="image" scaleMode="CONTAIN"/>
