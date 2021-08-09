@@ -50,6 +50,7 @@
                     <button id="createBtn" action="pizzasTable.create"/>
                     <button id="editBtn" action="pizzasTable.edit"/>
                     <button id="removeBtn" action="pizzasTable.remove"/>
+                    <button id="reportBtn" icon="icons/reports-print.png"/>
                 </buttonsPanel>
             </groupTable>
             <groupBox spacing="true" height="100%">

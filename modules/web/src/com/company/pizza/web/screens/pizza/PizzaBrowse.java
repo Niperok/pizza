@@ -4,9 +4,11 @@ import com.company.pizza.web.screens.ingredient.IngredientBrowse;
 import com.haulmont.cuba.gui.Notifications;
 import com.haulmont.cuba.gui.ScreenBuilders;
 import com.haulmont.cuba.gui.components.Action;
+import com.haulmont.cuba.gui.components.Button;
 import com.haulmont.cuba.gui.components.GroupTable;
 import com.haulmont.cuba.gui.screen.*;
 import com.company.pizza.entity.Pizza;
+import com.haulmont.reports.gui.actions.RunReportAction;
 
 import javax.inject.Inject;
 
@@ -22,6 +24,8 @@ public class PizzaBrowse extends StandardLookup<Pizza> {
     private ScreenBuilders screenBuilders;
     @Inject
     private Notifications notifications;
+    @Inject
+    private Button reportBtn;
 
     @Subscribe("pizzasTable.showRecipe")
     public void onPizzasTableShowRecipe(Action.ActionPerformedEvent event) {
@@ -38,4 +42,11 @@ public class PizzaBrowse extends StandardLookup<Pizza> {
                     .withType(Notifications.NotificationType.WARNING).show();
         }
     }
+
+    @Subscribe
+    public void onInit(InitEvent event) {
+        reportBtn.setAction(new RunReportAction());
+    }
+
+    
 }
